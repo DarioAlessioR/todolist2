@@ -26,6 +26,10 @@ const addtodo = (inputtodo) => {
   }
 };
 
+const removetodo = (i) => {
+  console.log(todolist[i].todo);
+};
+
 const showtodolist = (todolist) => {
   const totallist = document.getElementById('totallist');
   totallist.innerHTML = '';
@@ -43,8 +47,7 @@ const showtodolist = (todolist) => {
     const icon3 = document.createElement('i');
     icon3.setAttribute('class', 'fa-solid fa-ellipsis-vertical');
     divicon3.addEventListener('click', () => {
-      icon3.setAttribute('class', 'fa-solid fa-trash-can');
-      
+      icon3.setAttribute('class', 'fa-solid fa-trash-can'); 
       icon3.addEventListener('click', removetodo(i));
     });
     divicon3.appendChild(icon3);
@@ -64,17 +67,6 @@ submitbtn.addEventListener('click', () => {
   todoinput.value = '';
   showtodolist(todolist);
 });
-
-const removetodo = (i) => {
-
-  console.log(todolist[i].todo);
-};
-
-
-
-
-
-
 
 /*
 const d = new Date();
