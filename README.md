@@ -27,23 +27,35 @@ On page load render the dynamically created list of tasks in the dedicated place
 
 ## Live Demo (if available)
 
+"Not available"
 
 ## Getting Started:
 
+Please run: npm run build and then npm start to see project displayed in your browser.
 
 ### Prerequisites
 
+"Not available"
+
 ### Setup
+
+"Not available"
 
 ### Install
 
+"Not available"
+
 ### Usage
+
+"Not available"
 
 ### Run tests
 
+"Not available"
+
 ### Deployment
 
-
+"Not available"
 
 ## Authors
 
