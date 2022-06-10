@@ -1,3 +1,82 @@
-.hello {
-  color: red;
+body {
+  background-color: rgb(216, 224, 231);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  padding: 5px;
+  margin-top: 50px;
+  width: 50%;
+  min-width: 250px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recycle {
+  padding: 10px;
+}
+
+.boxshadow {
+  padding: 5px;
+  width: 50%;
+  min-width: 250px;
+  border: 1px solid rgb(190, 188, 188);
+  box-shadow: 5px 5px 5px 5px rgb(201, 196, 196);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputform {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#todo-input {
+  width: 100%;
+}
+
+#submit {
+  cursor: pointer;
+}
+
+.clear {
+  cursor: pointer;
+}
+
+#totallist {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.linelist {
+  width: 97.55%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 10px;
+  height: 25px;
+  border-bottom: 1px solid rgb(199, 196, 196);
+}
+
+#leftside {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 17px;
+}
+
+.change {
+  cursor: move;
 }
