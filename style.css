@@ -25,7 +25,7 @@ header {
   padding: 5px;
   width: 50%;
   min-width: 250px;
-  border: 1px solid rgb(190, 188, 188);
+  border: 1px solid rgb(191, 188, 188);
   box-shadow: 5px 5px 5px 5px rgb(201, 196, 196);
   display: flex;
   flex-direction: column;
