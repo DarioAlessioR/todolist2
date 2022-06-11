@@ -4,49 +4,49 @@ import './style.css';
 
 const todolist = [
   {
-  id: 0,
-  todo: '',
-  todostatus: '',
+    id: 0,
+    todo: '',
+    todostatus: '',
   },
   {
-  id: 1,
-  todo: 'Have a cup of tea or coffee',
-  todostatus: true,
+    id: 1,
+    todo: 'Have a cup of tea or coffee',
+    todostatus: true,
   },
   {
-  id: 2,
-  todo: 'Study MICROVERSE',
-  todostatus: true,
+    id: 2,
+    todo: 'Study MICROVERSE',
+    todostatus: true,
   },
   {
-  id: 3,
-  todo: 'Enjoy life',
-  todostatus: true,
+    id: 3,
+    todo: 'Enjoy life',
+    todostatus: true,
   },
   {
-  id: 4,
-  todo: 'Happy coding',
-  todostatus: true,
-  }
+    id: 4,
+    todo: 'Happy coding',
+    todostatus: true,
+  },
 ];
 
-document.getElementById("body").onload = () => {
-  const localSt =  JSON.parse(localStorage.getItem('texttodolist'));
+document.getElementById('body').onload = () => {
+  const localSt = JSON.parse(localStorage.getItem('texttodolist'));
   if (localSt == null) {
-    localStorage.setItem('texttodolist', JSON.stringify(todolist)); 
+    localStorage.setItem('texttodolist', JSON.stringify(todolist));
   } else {
     showtodolist(localSt);
   }
-}
+};
 
-const addtodo = (inputtodo) => {  
+const addtodo = (inputtodo) => {
   if (inputtodo.length < 1) {
     const message = document.getElementById('message');
     message.innerHTML = 'Please, type a "to do" activity';
   } else {
     const message = document.getElementById('message');
     message.innerHTML = '';
-    let todolist = JSON.parse(localStorage.getItem('texttodolist'))
+    let todolist = JSON.parse(localStorage.getItem('texttodolist'));
     todolist.push(
       {
         id: todolist.length > 0 ? todolist[todolist.length - 1].id + 1 : 1,
@@ -61,7 +61,7 @@ const addtodo = (inputtodo) => {
 const showtodolist = (todolist) => {
   const totallist = document.getElementById('totallist');
   totallist.innerHTML = '';
-  for (let i = todolist.length-1; i > 0; i -= 1) {
+  for (let i = todolist.length - 1; i > 0; i -= 1) {
     const line = document.createElement('div');
     line.setAttribute('class', 'linelist');
     const leftside = document.createElement('div');
@@ -76,7 +76,7 @@ const showtodolist = (todolist) => {
     icon3.setAttribute('class', 'fa-solid fa-ellipsis-vertical');
     divicon3.addEventListener('click', () => {
       icon3.setAttribute('class', 'fa-solid fa-trash-can');
-      icon3.addEventListener('click', removetodo(i));
+      icon3.addEventListener('click', 'removetodo(i)');
     });
     divicon3.appendChild(icon3);
     leftside.appendChild(checkbox);
