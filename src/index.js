@@ -8,13 +8,6 @@ const todolist = [{
   todostatus: '',
 }];
 
-document.getElementById("body").onload = () => {
-  const localSt =  JSON.parse(localStorage.getItem('texttodolist'));
-  if (localSt.length > 0) {
-    showtodolist(localSt);
-  }
-}
-
 const addtodo = (inputtodo) => {  
   if (inputtodo.length < 1) {
     const message = document.getElementById('message');
@@ -66,6 +59,13 @@ const showtodolist = (todolist) => {
     totallist.appendChild(line);
   }
 };
+
+document.getElementById('body').onload = () => {
+  const localSt = JSON.parse(localStorage.getItem('texttodolist'));
+  if (localSt.length > 0) {
+    showtodolist(localSt);
+  }
+}
 
 const submitbtn = document.getElementById('submit');
 submitbtn.addEventListener('click', () => {
