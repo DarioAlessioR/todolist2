@@ -46,7 +46,7 @@ const addtodo = (inputtodo) => {
   } else {
     const message = document.getElementById('message');
     message.innerHTML = '';
-    let todolist = JSON.parse(localStorage.getItem('texttodolist'));
+    const todolist = JSON.parse(localStorage.getItem('texttodolist'));
     todolist.push(
       {
         id: todolist.length > 0 ? todolist[todolist.length - 1].id + 1 : 1,
