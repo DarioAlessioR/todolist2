@@ -8,14 +8,14 @@ const todolist = [{
   todostatus: '',
 }];
 
-const addtodo = (inputtodo) => {  
+const addtodo = (inputtodo) => {
   if (inputtodo.length < 1) {
     const message = document.getElementById('message');
     message.innerHTML = 'Please, type a "to do" activity';
   } else {
     const message = document.getElementById('message');
     message.innerHTML = '';
-    const stored = JSON.parse(localStorage.getItem('texttodolist'))
+    const stored = JSON.parse(localStorage.getItem('texttodolist'));
     if (stored.length > 0) {
       var todolist = (JSON.parse(localStorage.getItem('texttodolist')));
     }
@@ -27,7 +27,7 @@ const addtodo = (inputtodo) => {
       },
     );
     localStorage.setItem('texttodolist', JSON.stringify(todolist));
-  } 
+  }
   showtodolist(todolist);
 };
 
@@ -49,7 +49,7 @@ const showtodolist = (todolist) => {
     icon3.setAttribute('class', 'fa-solid fa-ellipsis-vertical');
     divicon3.addEventListener('click', () => {
       icon3.setAttribute('class', 'fa-solid fa-trash-can');
-      icon3.addEventListener('click', removetodo(i));
+      icon3.addEventListener('click', 'removetodo(i)');
     });
     divicon3.appendChild(icon3);
     leftside.appendChild(checkbox);
@@ -65,7 +65,7 @@ document.getElementById('body').onload = () => {
   if (localSt.length > 0) {
     showtodolist(localSt);
   }
-}
+};
 
 const submitbtn = document.getElementById('submit');
 submitbtn.addEventListener('click', () => {
