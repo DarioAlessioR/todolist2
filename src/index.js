@@ -3,18 +3,29 @@
 import './style.css';
 
 const todolist = [{
-  id: '',
+  id: 0,
   todo: 'mmmmmmmmmmmm',
   todostatus: '',
 }];
 
-const addtodo = (inputtodo) => {
+document.getElementById("body").onload = () => {
+  const localSt =  JSON.parse(localStorage.getItem('texttodolist'));
+  if (localSt.length > 0) {
+    showtodolist(localSt);
+  }
+}
+
+const addtodo = (inputtodo) => {  
   if (inputtodo.length < 1) {
     const message = document.getElementById('message');
     message.innerHTML = 'Please, type a "to do" activity';
   } else {
     const message = document.getElementById('message');
     message.innerHTML = '';
+    const stored = JSON.parse(localStorage.getItem('texttodolist'))
+    if (stored.length > 0) {
+      var todolist = (JSON.parse(localStorage.getItem('texttodolist')));
+    }
     todolist.push(
       {
         id: todolist.length > 0 ? todolist[todolist.length - 1].id + 1 : 1,
@@ -22,12 +33,9 @@ const addtodo = (inputtodo) => {
         todostatus: true,
       },
     );
-    localStorage.setItem('todolist', JSON.stringify(todolist));
-  }
-};
-
-const removetodo = (i) => {
-  console.log(todolist[i].todo);
+    localStorage.setItem('texttodolist', JSON.stringify(todolist));
+  } 
+  showtodolist(todolist);
 };
 
 const showtodolist = (todolist) => {
@@ -65,32 +73,4 @@ submitbtn.addEventListener('click', () => {
   const inputtodo = todoinput.value;
   addtodo(inputtodo);
   todoinput.value = '';
-  showtodolist(todolist);
 });
-
-/*
-const d = new Date();
-document.getElementById('today').innerHTML = d;
-*/
-/*
-if (localStorage.getItem('todolist') !== null && localStorage.getItem('todolist') !== undefined) {
-  Book.setBooks(JSON.parse(localStorage.getItem('todolist')));
-}
-*/
-/*
-function component() {
-  const element = document.createElement('div');
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Helloooooooooooooooooo', 'webpack'], ' ');
-  element.classList.add('hello');
-
-  return element;
-}
-
-document.body.appendChild(component());
-*/
-
-/*
-import _ from 'lodash';
-*/
