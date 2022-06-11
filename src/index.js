@@ -2,23 +2,51 @@
 
 import './style.css';
 
-const todolist = [{
+const todolist = [
+  {
   id: 0,
-  todo: 'mmmmmmmmmmmm',
+  todo: '',
   todostatus: '',
-}];
+  },
+  {
+  id: 1,
+  todo: 'Have a cup of tea or coffee',
+  todostatus: true,
+  },
+  {
+  id: 2,
+  todo: 'Study MICROVERSE',
+  todostatus: true,
+  },
+  {
+  id: 3,
+  todo: 'Enjoy life',
+  todostatus: true,
+  },
+  {
+  id: 4,
+  todo: 'Happy coding',
+  todostatus: true,
+  }
+];
 
-const addtodo = (inputtodo) => {
+document.getElementById("body").onload = () => {
+  const localSt =  JSON.parse(localStorage.getItem('texttodolist'));
+  if (localSt == null) {
+    localStorage.setItem('texttodolist', JSON.stringify(todolist)); 
+  } else {
+    showtodolist(localSt);
+  }
+}
+
+const addtodo = (inputtodo) => {  
   if (inputtodo.length < 1) {
     const message = document.getElementById('message');
     message.innerHTML = 'Please, type a "to do" activity';
   } else {
     const message = document.getElementById('message');
     message.innerHTML = '';
-    const stored = JSON.parse(localStorage.getItem('texttodolist'));
-    if (stored.length > 0) {
-      var todolist = (JSON.parse(localStorage.getItem('texttodolist')));
-    }
+    let todolist = JSON.parse(localStorage.getItem('texttodolist'))
     todolist.push(
       {
         id: todolist.length > 0 ? todolist[todolist.length - 1].id + 1 : 1,
@@ -27,14 +55,13 @@ const addtodo = (inputtodo) => {
       },
     );
     localStorage.setItem('texttodolist', JSON.stringify(todolist));
-  }
-  showtodolist(todolist);
+  } showtodolist(JSON.parse(localStorage.getItem('texttodolist')));
 };
 
 const showtodolist = (todolist) => {
   const totallist = document.getElementById('totallist');
   totallist.innerHTML = '';
-  for (let i = 1; i < todolist.length; i += 1) {
+  for (let i = todolist.length-1; i > 0; i -= 1) {
     const line = document.createElement('div');
     line.setAttribute('class', 'linelist');
     const leftside = document.createElement('div');
@@ -49,7 +76,7 @@ const showtodolist = (todolist) => {
     icon3.setAttribute('class', 'fa-solid fa-ellipsis-vertical');
     divicon3.addEventListener('click', () => {
       icon3.setAttribute('class', 'fa-solid fa-trash-can');
-      icon3.addEventListener('click', 'removetodo(i)');
+      icon3.addEventListener('click', removetodo(i));
     });
     divicon3.appendChild(icon3);
     leftside.appendChild(checkbox);
@@ -57,13 +84,6 @@ const showtodolist = (todolist) => {
     line.appendChild(leftside);
     line.appendChild(divicon3);
     totallist.appendChild(line);
-  }
-};
-
-document.getElementById('body').onload = () => {
-  const localSt = JSON.parse(localStorage.getItem('texttodolist'));
-  if (localSt.length > 0) {
-    showtodolist(localSt);
   }
 };
 
