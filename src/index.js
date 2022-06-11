@@ -38,10 +38,18 @@ const showtodolist = (todolist) => {
     line.setAttribute('class', 'linelist');
     const leftside = document.createElement('div');
     leftside.setAttribute('id', 'leftside');
+    
+    const activity = document.createElement('p');
+    activity.setAttribute('id', `${todolist[i].id}`)
+    activity.innerHTML = `${todolist[i].todo}`;
+    
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
-    const activity = document.createElement('p');
-    activity.innerHTML = `${todolist[i].todo}`;
+    checkbox.setAttribute('class', `${todolist[i].id}`);
+    checkbox.addEventListener('onclick', completetodo());
+
+    
+    
     const divicon3 = document.createElement('div');
     divicon3.setAttribute('class', 'change');
     const icon3 = document.createElement('i');
@@ -59,6 +67,21 @@ const showtodolist = (todolist) => {
   }
 };
 
+const completetodo = () => {
+  var checkBox = document.querySelectorAll('checkbox')
+  for (let i = 0; i <= checkBox.length; i += 1) {
+    if (checkBox.checked == true)
+    console.log('ajaaaa')
+  }
+
+}
+/*
+const check = document.querySelector('checkbox');
+const activ = document.querySelectorAll('activity');
+check.setAttribute('onclick', () => {
+  activ.setAttribute('text-decoration', 'line-through')
+});
+*/
 document.getElementById('body').onload = () => {
   const localSt = JSON.parse(localStorage.getItem('texttodolist'));
   if (localSt == null) {
