@@ -10,16 +10,6 @@ const todolist = [
   },
 ];
 
-const deleter = (deletetodo) => {
-  const todolist = JSON.parse(localStorage.getItem('texttodolist'));
-  todolist.splice(deletetodo, 1);
-  for (let i = 0; i < todolist.length; i += 1) {
-    todolist[i].id = i;
-  }
-  localStorage.setItem('texttodolist', JSON.stringify(todolist));
-  location.reload();
-};
-
 const showtodolist = (todolist) => {
   const totallist = document.getElementById('totallist');
   totallist.innerHTML = '';
@@ -54,6 +44,16 @@ const showtodolist = (todolist) => {
     line.appendChild(divicon3);
     totallist.appendChild(line);
   }
+}; 
+
+const deleter = (deletetodo) => {
+  const todolist = JSON.parse(localStorage.getItem('texttodolist'));
+  todolist.splice(deletetodo, 1);
+  for (let i = 0; i < todolist.length; i += 1) {
+    todolist[i].id = i;
+  }
+  localStorage.setItem('texttodolist', JSON.stringify(todolist));
+  return showtodolist(todolist);
 };
 
 document.getElementById('body').onload = () => {
