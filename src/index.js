@@ -8,26 +8,6 @@ const todolist = [
     todo: '',
     todostatus: '',
   },
-  {
-    id: 1,
-    todo: 'Have a cup of tea or coffee',
-    todostatus: true,
-  },
-  {
-    id: 2,
-    todo: 'Study MICROVERSE',
-    todostatus: true,
-  },
-  {
-    id: 3,
-    todo: 'Enjoy life',
-    todostatus: true,
-  },
-  {
-    id: 4,
-    todo: 'Happy coding',
-    todostatus: true,
-  },
 ];
 
 const showtodolist = (todolist) => {
@@ -38,25 +18,24 @@ const showtodolist = (todolist) => {
     line.setAttribute('class', 'linelist');
     const leftside = document.createElement('div');
     leftside.setAttribute('id', 'leftside');
-    
     const activity = document.createElement('p');
-    activity.setAttribute('id', `${todolist[i].id}`)
+    activity.setAttribute('contentEditable', 'true')
+    activity.setAttribute('class', `${todolist[i].id}`)
     activity.innerHTML = `${todolist[i].todo}`;
-    
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('class', `${todolist[i].id}`);
-    checkbox.addEventListener('onclick', completetodo());
-
-    
-    
+    checkbox.setAttribute('name', 'checkbox');
+    checkbox.setAttribute('class', `${todolist[i].id}`); 
     const divicon3 = document.createElement('div');
     divicon3.setAttribute('class', 'change');
     const icon3 = document.createElement('i');
     icon3.setAttribute('class', 'fa-solid fa-ellipsis-vertical');
     divicon3.addEventListener('click', () => {
       icon3.setAttribute('class', 'fa-solid fa-trash-can');
-      icon3.addEventListener('click', 'removetodo(i)');
+      icon3.addEventListener('click', () => {
+        const deletetodo = `${i}`
+        deleter(deletetodo);
+      });
     });
     divicon3.appendChild(icon3);
     leftside.appendChild(checkbox);
@@ -67,21 +46,16 @@ const showtodolist = (todolist) => {
   }
 };
 
-const completetodo = () => {
-  var checkBox = document.querySelectorAll('checkbox')
-  for (let i = 0; i <= checkBox.length; i += 1) {
-    if (checkBox.checked == true)
-    console.log('ajaaaa')
+const deleter = (deletetodo) => {
+  const todolist = JSON.parse(localStorage.getItem('texttodolist'));
+  todolist.splice(deletetodo, 1);    
+  for (let i = 0; i < todolist.length; i += 1) {
+    todolist[i].id = i
   }
-
+  localStorage.setItem('texttodolist', JSON.stringify(todolist));
+  return showtodolist(todolist);
 }
-/*
-const check = document.querySelector('checkbox');
-const activ = document.querySelectorAll('activity');
-check.setAttribute('onclick', () => {
-  activ.setAttribute('text-decoration', 'line-through')
-});
-*/
+
 document.getElementById('body').onload = () => {
   const localSt = JSON.parse(localStorage.getItem('texttodolist'));
   if (localSt == null) {
