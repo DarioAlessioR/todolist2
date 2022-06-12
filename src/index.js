@@ -34,7 +34,17 @@ const showtodolist = (todolist) => {
       icon3.setAttribute('class', 'fa-solid fa-trash-can');
       icon3.addEventListener('click', () => {
         const deletetodo = `${i}`;
-        deleter(deletetodo);
+       // deleter(deletetodo);
+
+       const todolist = JSON.parse(localStorage.getItem('texttodolist'));
+       todolist.splice(deletetodo, 1);
+       for (let i = 0; i < todolist.length; i += 1) {
+         todolist[i].id = i;
+       }
+       localStorage.setItem('texttodolist', JSON.stringify(todolist));
+       return showtodolist(todolist);
+
+
       });
     });
     divicon3.appendChild(icon3);
@@ -46,6 +56,7 @@ const showtodolist = (todolist) => {
   }
 }; 
 
+/*
 const deleter = (deletetodo) => {
   const todolist = JSON.parse(localStorage.getItem('texttodolist'));
   todolist.splice(deletetodo, 1);
@@ -55,6 +66,8 @@ const deleter = (deletetodo) => {
   localStorage.setItem('texttodolist', JSON.stringify(todolist));
   return showtodolist(todolist);
 };
+
+*/
 
 document.getElementById('body').onload = () => {
   const localSt = JSON.parse(localStorage.getItem('texttodolist'));
