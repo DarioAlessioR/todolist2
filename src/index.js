@@ -17,7 +17,7 @@ const deleter = (deletetodo) => {
     todolist[i].id = i;
   }
   localStorage.setItem('texttodolist', JSON.stringify(todolist));
-  return showtodolist(todolist);
+  location.reload();
 };
 
 const showtodolist = (todolist) => {
