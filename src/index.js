@@ -37,7 +37,7 @@ const showtodolist = (todolist) => {
         const todolist = JSON.parse(localStorage.getItem('texttodolist'));
         todolist.splice(deletetodo, 1);
         for (let i = 0; i < todolist.length; i += 1) {
-         todolist[i].id = i;
+          todolist[i].id = i;
         }
         localStorage.setItem('texttodolist', JSON.stringify(todolist));
         return showtodolist(todolist);
@@ -50,7 +50,7 @@ const showtodolist = (todolist) => {
     line.appendChild(divicon3);
     totallist.appendChild(line);
   }
-}; 
+};
 
 document.getElementById('body').onload = () => {
   const localSt = JSON.parse(localStorage.getItem('texttodolist'));
