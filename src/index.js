@@ -10,6 +10,16 @@ const todolist = [
   },
 ];
 
+const deleter = (deletetodo) => {
+  const todolist = JSON.parse(localStorage.getItem('texttodolist'));
+  todolist.splice(deletetodo, 1);
+  for (let i = 0; i < todolist.length; i += 1) {
+    todolist[i].id = i;
+  }
+  localStorage.setItem('texttodolist', JSON.stringify(todolist));
+  return showtodolist(todolist);
+};
+
 const showtodolist = (todolist) => {
   const totallist = document.getElementById('totallist');
   totallist.innerHTML = '';
@@ -19,13 +29,13 @@ const showtodolist = (todolist) => {
     const leftside = document.createElement('div');
     leftside.setAttribute('id', 'leftside');
     const activity = document.createElement('p');
-    activity.setAttribute('contentEditable', 'true')
-    activity.setAttribute('class', `${todolist[i].id}`)
+    activity.setAttribute('contentEditable', 'true');
+    activity.setAttribute('class', `${todolist[i].id}`);
     activity.innerHTML = `${todolist[i].todo}`;
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
     checkbox.setAttribute('name', 'checkbox');
-    checkbox.setAttribute('class', `${todolist[i].id}`); 
+    checkbox.setAttribute('class', `${todolist[i].id}`);
     const divicon3 = document.createElement('div');
     divicon3.setAttribute('class', 'change');
     const icon3 = document.createElement('i');
@@ -33,7 +43,7 @@ const showtodolist = (todolist) => {
     divicon3.addEventListener('click', () => {
       icon3.setAttribute('class', 'fa-solid fa-trash-can');
       icon3.addEventListener('click', () => {
-        const deletetodo = `${i}`
+        const deletetodo = `${i}`;
         deleter(deletetodo);
       });
     });
@@ -45,16 +55,6 @@ const showtodolist = (todolist) => {
     totallist.appendChild(line);
   }
 };
-
-const deleter = (deletetodo) => {
-  const todolist = JSON.parse(localStorage.getItem('texttodolist'));
-  todolist.splice(deletetodo, 1);    
-  for (let i = 0; i < todolist.length; i += 1) {
-    todolist[i].id = i
-  }
-  localStorage.setItem('texttodolist', JSON.stringify(todolist));
-  return showtodolist(todolist);
-}
 
 document.getElementById('body').onload = () => {
   const localSt = JSON.parse(localStorage.getItem('texttodolist'));
