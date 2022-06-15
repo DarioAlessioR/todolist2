@@ -99,7 +99,7 @@ const showtodolist = (todolist) => {
 };
 
 
-
+const clearAllCompleted = () => {
   const clear = document.getElementById('clear');
   clear.addEventListener('click', () => {   
     const todolist2 = JSON.parse(localStorage.getItem('texttodolist'));
@@ -112,8 +112,8 @@ const showtodolist = (todolist) => {
       showtodolist(JSON.parse(localStorage.getItem('texttodolist')));
     };
   });
+}
 
-  
 // On page load (onload), show list of activities on screen
 document.getElementById('body').onload = () => {
   const localSt = JSON.parse(localStorage.getItem('texttodolist'));
@@ -155,4 +155,4 @@ submitbtn.addEventListener('click', () => {
   todoinput.value = '';
 });
 
-
+clearAllCompleted();
