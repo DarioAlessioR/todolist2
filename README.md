@@ -51,7 +51,7 @@ it will contain methods related to the status updates (completed: true / false).
 
 ## Built With:
 
-- Major languages : Javascript, HTML, CSS
+- Major languages: Javascript, HTML, CSS
 - Frameworks: webpack
 - Technologies used: VSC, Github
 
