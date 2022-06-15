@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-
+import changeStatus from './modules/changestatus.js';
 import './style.css';
 
 const todolist = [
@@ -9,21 +9,6 @@ const todolist = [
     todostatus: '',
   },
 ];
-
- //  localStorage.clear()
-
-// Function changeStatus to capture checkbox clicks and change todostatus boolean in
-//  array for checked elements
-const changeStatus = (i) => {
-  const todolist = JSON.parse(localStorage.getItem('texttodolist'));
-  if (todolist[i].todostatus == true) {
-    todolist[i].todostatus = false
-    localStorage.setItem('texttodolist', JSON.stringify(todolist));  
-  } else {
-    todolist[i].todostatus = true
-    localStorage.setItem('texttodolist', JSON.stringify(todolist));
-  } console.log(todolist)
-}
 
 // Function shortodolist shows the list of activities on screen
 const showtodolist = (todolist) => {
@@ -98,7 +83,7 @@ const showtodolist = (todolist) => {
   }
 };
 
-
+// Function clearAllCompleted to clear from array all elements with todostatus = false
 const clearAllCompleted = () => {
   const clear = document.getElementById('clear');
   clear.addEventListener('click', () => {   
@@ -124,7 +109,8 @@ document.getElementById('body').onload = () => {
   }
 };
 
-// Save to the array the data captured in input form. Show error message if try to save empty field
+// Function addtodo to save to the array the data captured in input form.
+// It shows error message if try to save empty field
 const addtodo = (inputtodo) => {
   if (inputtodo.length < 1) {
     const message = document.getElementById('message');
