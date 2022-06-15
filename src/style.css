@@ -97,3 +97,11 @@ header {
 .change {
   cursor: move;
 }
+
+.completed {
+  text-decoration: line-through;
+}
+
+.uncompleted {
+  text-decoration: none;
+}
