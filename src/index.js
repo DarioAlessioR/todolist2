@@ -39,15 +39,15 @@ const showtodolist = (todolist) => {
     checkbox.setAttribute('type', 'checkbox');
     checkbox.setAttribute('name', 'checkbox');
     checkbox.addEventListener('click', () => {
-      changeStatus(i)
+      changeStatus(i);
       const todolist = JSON.parse(localStorage.getItem('texttodolist'));
       // Change class for text-decoration of activity to line-through if checkbox clicked
-      if (todolist[i].todostatus == false) {
-        activity.setAttribute('class', 'completed')
+      if (todolist[i].todostatus === false) {
+        activity.setAttribute('class', 'completed');
       } else {
-        activity.classList.remove('completed')
+        activity.classList.remove('completed');
       }
-    })
+    });
     // Create divicon3 div to put inside icons
     const divicon3 = document.createElement('div');
     divicon3.setAttribute('class', 'change');
@@ -86,18 +86,17 @@ const showtodolist = (todolist) => {
 // Function clearAllCompleted to clear from array all elements with todostatus = false
 const clearAllCompleted = () => {
   const clear = document.getElementById('clear');
-  clear.addEventListener('click', () => {   
+  clear.addEventListener('click', () => {
     const todolist2 = JSON.parse(localStorage.getItem('texttodolist'));
-    console.log(todolist2)
-    for (let i = todolist2.length-1; i > 0; i-= 1) {
-      if (todolist2[i].todostatus == false) {
+    for (let i = todolist2.length - 1; i > 0; i -= 1) {
+      if (todolist2[i].todostatus === false) {
         todolist2.splice(i, 1);
-      } 
+      }
       localStorage.setItem('texttodolist', JSON.stringify(todolist2));
       showtodolist(JSON.parse(localStorage.getItem('texttodolist')));
-    };
+    }
   });
-}
+};
 
 // On page load (onload), show list of activities on screen
 document.getElementById('body').onload = () => {
