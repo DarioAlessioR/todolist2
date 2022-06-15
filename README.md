@@ -23,15 +23,11 @@ On page load render the dynamically created list of tasks in the dedicated place
 
 -- Phase 2:
 
-Remove all hardcoded items from the tasks array.
-
-Create a new JavaScript file for the new functionality.
-
-Implement a function for adding a new task (add a new element to the array).
-
-Implement a function for deleting a task (remove an element from the array).
-
-Implement a function for editing each task descriptions.
+- Remove all hardcoded items from the tasks array.
+- Create a new JavaScript file for the new functionality.
+- Implement a function for adding a new task (add a new element to the array).
+- Implement a function for deleting a task (remove an element from the array).
+- Implement a function for editing each task descriptions.
 
 By default new tasks should have the property completed set to false and the property index set to the value of the
 new array length (i.e. if you're adding a 5th task to the list, the index of that task should equal to 5).
@@ -99,7 +95,9 @@ it will contain methods related to the status updates (completed: true / false).
 👤 **Author1**
 
 GitHub: https://github.com/DarioAlessioR
+
 Slack: https://microverse-students.slack.com/team/U039GCFRK9B
+
 LinkedIn: https://www.linkedin.com/in/dario-alessio-3a3b7911b
 
 
