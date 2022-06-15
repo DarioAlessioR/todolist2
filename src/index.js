@@ -10,6 +10,21 @@ const todolist = [
   },
 ];
 
+ //  localStorage.clear()
+
+// Function changeStatus to capture checkbox clicks and change todostatus boolean in
+//  array for checked elements
+const changeStatus = (i) => {
+  const todolist = JSON.parse(localStorage.getItem('texttodolist'));
+  if (todolist[i].todostatus == true) {
+    todolist[i].todostatus = false
+    localStorage.setItem('texttodolist', JSON.stringify(todolist));  
+  } else {
+    todolist[i].todostatus = true
+    localStorage.setItem('texttodolist', JSON.stringify(todolist));
+  } console.log(todolist)
+}
+
 // Function shortodolist shows the list of activities on screen
 const showtodolist = (todolist) => {
   const totallist = document.getElementById('totallist');
@@ -23,10 +38,12 @@ const showtodolist = (todolist) => {
     leftside.setAttribute('id', 'leftside');
     // Create the todo in activity
     const activity = document.createElement('p');
-    activity.setAttribute('contentEditable', 'true');
+    activity.setAttribute('name', 'activity');
     activity.setAttribute('class', `${todolist[i].id}`);
+    activity.setAttribute('class', 'activity');
     activity.innerHTML = `${todolist[i].todo}`;
     // Make activity field editable and save new content to array and localStorage
+    activity.setAttribute('contentEditable', 'true');
     activity.addEventListener('keydown', () => {
       const todolist = JSON.parse(localStorage.getItem('texttodolist'));
       todolist[i].todo = activity.innerHTML;
@@ -36,7 +53,16 @@ const showtodolist = (todolist) => {
     const checkbox = document.createElement('input');
     checkbox.setAttribute('type', 'checkbox');
     checkbox.setAttribute('name', 'checkbox');
-    checkbox.setAttribute('class', `${todolist[i].id}`);
+    checkbox.addEventListener('click', () => {
+      changeStatus(i)
+      const todolist = JSON.parse(localStorage.getItem('texttodolist'));
+      // Change class for text-decoration of activity to line-through if checkbox clicked
+      if (todolist[i].todostatus == false) {
+        activity.setAttribute('class', 'completed')
+      } else {
+        activity.classList.remove('completed')
+      }
+    })
     // Create divicon3 div to put inside icons
     const divicon3 = document.createElement('div');
     divicon3.setAttribute('class', 'change');
@@ -72,6 +98,22 @@ const showtodolist = (todolist) => {
   }
 };
 
+
+
+  const clear = document.getElementById('clear');
+  clear.addEventListener('click', () => {   
+    const todolist2 = JSON.parse(localStorage.getItem('texttodolist'));
+    console.log(todolist2)
+    for (let i = todolist2.length-1; i > 0; i-= 1) {
+      if (todolist2[i].todostatus == false) {
+        todolist2.splice(i, 1);
+      } 
+      localStorage.setItem('texttodolist', JSON.stringify(todolist2));
+      showtodolist(JSON.parse(localStorage.getItem('texttodolist')));
+    };
+  });
+
+  
 // On page load (onload), show list of activities on screen
 document.getElementById('body').onload = () => {
   const localSt = JSON.parse(localStorage.getItem('texttodolist'));
@@ -112,3 +154,5 @@ submitbtn.addEventListener('click', () => {
   addtodo(inputtodo);
   todoinput.value = '';
 });
+
+
