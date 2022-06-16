@@ -55,7 +55,7 @@ Please run: npm run build and then npm start to see project displayed in your br
 
 ### Deployment
 
-"Not available"
+https://darioalessior.github.io/todolist2/dist/
 
 ## Authors
 
