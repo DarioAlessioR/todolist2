@@ -19,6 +19,7 @@ header {
   height: 43px;
   box-shadow: 4px 3px 3px 3px rgb(201, 196, 196);
 }
+
 .recycle {
   padding: 10px;
 }
@@ -50,6 +51,7 @@ header {
   border: none;
   border-bottom: 1px solid rgb(199, 196, 196);
 }
+
 #submit {
   cursor: pointer;
   border: none;
@@ -69,6 +71,7 @@ header {
   text-align: center;
   padding-top: 30px;
 }
+
 #totallist {
   width: 100%;
   display: flex;
@@ -96,4 +99,12 @@ header {
 
 .change {
   cursor: move;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.uncompleted {
+  text-decoration: none;
 }
