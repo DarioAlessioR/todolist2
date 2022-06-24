@@ -14,7 +14,7 @@ const remove = () => {
   todolist.splice(0, 1);
   for (let i = 0; i < todolist.length; i += 1) {
     todolist[i].id = i;
-  }console.log(todolist);
+  }
 }
 
 export default remove;

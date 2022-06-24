@@ -10,9 +10,6 @@ let todolist = [];
           todostatus: true,
         },
       );
-      console.log(todolist)
     }
-
- //addtodo('hhhhhhhh');
   export default addtodo;
   
