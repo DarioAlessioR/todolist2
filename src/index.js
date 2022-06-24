@@ -141,3 +141,5 @@ submitbtn.addEventListener('click', () => {
 });
 
 clearAllCompleted();
+
+export default addtodo;
