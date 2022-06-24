@@ -10,7 +10,7 @@ Tests: The project is tested with JEST.
 
 First round of tests includes only add and remove functions.
 
-Second round of tests will include edit, clear all and update index of elements.
+Second round of tests includes edit, clear all and update index of elements.
 
 ## Requirements:
 
