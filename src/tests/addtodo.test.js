@@ -1,10 +1,12 @@
 /**
  * @jest-environment jsdom
  */
+import addtodo from '../__mock__/addtodo.js';
+import todolist from '../__mock__/addtodo.js';
 
-import addtodo from '../index.js';
-
-
-test('adds 1 + 2 to equal 3', () => {
-    expect(addtodo('hola')).toBe(3);
+describe('add item with addtodo function', () => {
+  test('add 1 element', () => {
+    addtodo('this is a test');
+    expect(todolist).toHaveLength(1);
   });
+});

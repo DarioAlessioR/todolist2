@@ -6,6 +6,12 @@
 
 It's a simple HTML page list of To Do tasks. The list will be styled according to the specifications listed later in this README file. This simple web page will be built using webpack and served by a webpack dev server.
 
+Tests: The project is tested with JEST.
+
+First round of tests includes only add and remove functions.
+
+Second round of tests will include edit, clear all and update index of elements.
+
 ## Requirements:
 
 -- Phase 1:
@@ -48,7 +54,7 @@ it will contain methods related to the status updates (completed: true / false).
 ## Built With:
 
 - Major languages: Javascript, HTML, CSS
-- Frameworks: webpack
+- Frameworks: webpack, Jest
 - Technologies used: VSC, Github
 
 ## Live Demo (if available)
@@ -84,7 +90,7 @@ it will contain methods related to the status updates (completed: true / false).
 
 ### Run tests
 
-"Not available"
+run: npm test
 
 ### Deployment
 
@@ -94,11 +100,30 @@ https://darioalessior.github.io/todolist2/dist/
 
 👤 **Author1**
 
+- Dario Alessio
+
 GitHub: https://github.com/DarioAlessioR
 
 Slack: https://microverse-students.slack.com/team/U039GCFRK9B
 
 LinkedIn: https://www.linkedin.com/in/dario-alessio-3a3b7911b
+
+
+👤 **Author2**
+
+- Mauricio Gallegos
+
+ GitHub: https://github.com/maury18
+ 
+ Twitter: https://twitter.com/MauryRodrguez6
+ 
+ LinkedIn:https://www.linkedin.com/in/mauricio-gallegos-rodr%C3%ADguez-380a96183/
+
+👤 **Author3**
+
+- Frederick Ankomah
+
+ https://github.com/KingKowa
 
 
 ## 🤝 Contributing

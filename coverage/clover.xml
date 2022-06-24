@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1655988240917" clover="3.2.0">
-  <project timestamp="1655988240917" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1656031003406" clover="3.2.0">
+  <project timestamp="1656031003408" name="All files">
+    <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2" elements="14" coveredelements="13" complexity="0" loc="10" ncloc="10" packages="1" files="2" classes="2"/>
+    <file name="addtodo.js" path="C:\Users\Dario\Documents\MICROVERSE\Module2\todolist2\src\__mock__\addtodo.js">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+    </file>
+    <file name="remove.js" path="C:\Users\Dario\Documents\MICROVERSE\Module2\todolist2\src\__mock__\remove.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+    </file>
   </project>
 </coverage>
