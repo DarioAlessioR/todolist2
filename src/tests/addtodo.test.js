@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 /**
  * @jest-environment jsdom
  */
